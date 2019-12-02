@@ -7,6 +7,7 @@ import com.demo.service.SysOfficeService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -29,7 +30,13 @@ public class SysOfficeController  {
 
     @RequestMapping("selectByCondition")
     @ResponseBody
-    public PageInfo<SysOffice> selectByCondition(Map<String,Object> params){
+    public PageInfo<SysOffice> selectByCondition(@RequestBody  Map<String,Object> params){
         return sysOfficeService.selectByCondition(params);
+    }
+
+    @RequestMapping("toUpdate")
+    @ResponseBody
+    public SysOffice selectById(Long id){
+        return sysOfficeService.selectById(id);
     }
 }

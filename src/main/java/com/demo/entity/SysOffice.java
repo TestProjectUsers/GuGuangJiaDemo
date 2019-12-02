@@ -3,6 +3,7 @@ package com.demo.entity;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.util.Date;
 
 @Table(name = "sys_office")
@@ -133,6 +134,17 @@ public class SysOffice {
      * 备注信息
      */
     private String remarks;
+
+    @Transient
+    private String areaName;
+
+    public String getAreaName() {
+        return areaName;
+    }
+
+    public void setAreaName(String areaName) {
+        this.areaName = areaName;
+    }
 
     /**
      * 获取编号
@@ -560,5 +572,36 @@ public class SysOffice {
      */
     public void setRemarks(String remarks) {
         this.remarks = remarks == null ? null : remarks.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "SysOffice{" +
+                "id=" + id +
+                ", parentId=" + parentId +
+                ", parentIds='" + parentIds + '\'' +
+                ", areaId=" + areaId +
+                ", code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", grade='" + grade + '\'' +
+                ", address='" + address + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", master='" + master + '\'' +
+                ", phone='" + phone + '\'' +
+                ", fax='" + fax + '\'' +
+                ", email='" + email + '\'' +
+                ", website='" + website + '\'' +
+                ", createBy='" + createBy + '\'' +
+                ", createDate=" + createDate +
+                ", updateBy='" + updateBy + '\'' +
+                ", updateDate=" + updateDate +
+                ", delFlag='" + delFlag + '\'' +
+                ", icon='" + icon + '\'' +
+                ", logo='" + logo + '\'' +
+                ", roles='" + roles + '\'' +
+                ", remarks='" + remarks + '\'' +
+                ", areaName='" + areaName + '\'' +
+                '}';
     }
 }
